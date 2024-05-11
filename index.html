@@ -25,6 +25,12 @@
           <div class="choice nope">NOPE</div>
           <div class="choice like">LIKE</div>
         </article>
+        <article>
+          <img src="./photos/three.jpg" alt="Linda, black hair man, 31 yo" />
+          <h2>Linda <span>31</span></h2>
+          <div class="choice nope">NOPE</div>
+          <div class="choice like">LIKE</div>
+        </article>
 
         <span>
           No more people in your area... try later!
@@ -55,7 +61,6 @@
       overflow: hidden;
       user-select: none;
       background: #e5e5e5;
-      zoom: 0.8;
     }
 
     main {
@@ -256,6 +261,7 @@
 
       // get the first article element
       const actualCard = event.target.closest('article')
+      if (!actualCard) return
 
       // get inital position of the mouse or finger
       const startX = event.pageX ?? event.touches[0].pageX
@@ -294,7 +300,7 @@
 
         const choiceEl = isRight
           ? actualCard.querySelector('.choice.like')
-          : actualCard.querySelector('choice.nope')
+          : actualCard.querySelector('.choice.nope')
 
         choiceEl.style.opacity = opacity
       }
